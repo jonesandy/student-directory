@@ -20,11 +20,11 @@ def print_header
   puts "The students of Villains Academy"
   puts "-------------"
 end
-def print(names)
-  names.each_with_index do |student, index|
-    if student[:name].length < 12
-      puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
-    end
+def print(names) 
+  counter = 0
+  while counter < names.length do
+    puts "The villian #{names[counter][:name]} is in the #{names[counter][:cohort]} cohort!"
+    counter += 1
   end
 end
 def print_footer(names)
