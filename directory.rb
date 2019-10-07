@@ -21,8 +21,8 @@ def input_students
   students
 end
 def print_header  
-  puts "The students of Villains Academy"
-  puts "-------------"
+  puts "The students of Villains Academy".center(70, " = ")
+  puts "-------------".center(70)
 end
 def print(names) 
   counter = 0
