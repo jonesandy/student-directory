@@ -8,7 +8,11 @@ def input_students
   name = gets.chomp
   #while name is not empty repeat code below
   while !name.empty? do
-    students << {name: name, cohort: :november}
+    puts "What is their favourite sport?"
+    sport = gets.chomp
+    puts "Favourite food?"
+    fav_food = gets.chomp
+    students << {name: name, cohort: :november, sport: sport, food: fav_food}
     puts "Now we have #{students.count} students"
     #get a new name
     name = gets.chomp
@@ -23,7 +27,7 @@ end
 def print(names) 
   counter = 0
   while counter < names.length do
-    puts "The villian #{names[counter][:name]} is in the #{names[counter][:cohort]} cohort!"
+    puts "The villian #{names[counter][:name]} is in the #{names[counter][:cohort]} cohort! They like to play #{names[counter][:sport]} and love to eat #{names[counter][:food]}"
     counter += 1
   end
 end
