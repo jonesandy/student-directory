@@ -22,7 +22,7 @@ def print_header
 end
 def print(names)
   names.each_with_index do |student, index|
-    if student[:name][0] == "D"
+    if student[:name].length < 12
       puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
     end
   end
