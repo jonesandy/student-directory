@@ -12,7 +12,13 @@ def input_students
     sport = gets.chomp
     puts "Favourite food?"
     fav_food = gets.chomp
-    students << {name: name, cohort: :november, sport: sport, food: fav_food}
+    puts "Which cohort?"
+    cohort = gets.chomp
+    if !cohort.empty?     
+      students << {name: name, cohort: cohort.to_sym, sport: sport, food: fav_food}
+    else
+      students << {name: name, cohort: :november, sport: sport, food: fav_food}
+    end
     puts "Now we have #{students.count} students"
     #get a new name
     name = gets.chomp
@@ -30,6 +36,7 @@ def print(names)
     puts "The villian #{names[counter][:name]} is in the #{names[counter][:cohort]} cohort! They like to play #{names[counter][:sport]} and love to eat #{names[counter][:food]}"
     counter += 1
   end
+  puts "\n"
 end
 def print_footer(names)
   puts "Overall, we have #{names.count} great students."
@@ -38,3 +45,4 @@ students = input_students
 print_header
 print(students)
 print_footer(students)
+puts students
