@@ -19,7 +19,8 @@ def input_students
     else
       students << {name: name, cohort: :november, sport: sport, food: fav_food}
     end
-    puts "Now we have #{students.count} students"
+    students.count > 1 ? student_quantity = "students" : student_quantity = "student"
+    puts "Now we have #{students.count} #{student_quantity}"
     #get a new name
     name = gets.chomp
   end
@@ -45,4 +46,3 @@ students = input_students
 print_header
 print(students)
 print_footer(students)
-puts students
