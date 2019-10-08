@@ -45,4 +45,6 @@ end
 students = input_students
 print_header
 print(students)
-print_footer(students)
+if students.count > 0
+  print_footer(students)
+end
