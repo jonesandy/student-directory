@@ -15,6 +15,15 @@ def input_students
   end
 end
 
+def load_students(filename = "students.csv")
+  file = File.open(filename, "r")
+  file.readlines.each do |line|
+    name, cohort = line.chomp.split(",")
+    @students << {name: name, cohort: cohort.to_sym}
+  end
+  file.close
+end
+
 def print_header  
   puts "The students of Villains Academy"
   puts "-------------"
@@ -47,14 +56,19 @@ end
 def process(selection)
   case selection 
   when "1"
+    puts "Input students selected."
     input_students
   when "2"
+    puts "Showing list of students."
     show_students
   when "3"
+    puts "Saving list of students."
     save_students
   when "4"
+    puts "Loading file."
     load_students
   when "9"
+    puts "Quitting app."
     exit # this will exit the app
   else
     puts "I don't know what you meant. Please try again."
@@ -78,14 +92,7 @@ def save_students
   file.close
 end
 
-def load_students(filename = "students.csv")
-  file = File.open(filename, "r")
-  file.readlines.each do |line|
-    name, cohort = line.chomp.split(",")
-    @students << {name: name, cohort: cohort.to_sym}
-  end
-  file.close
-end
+
 
 def try_load_students
   filename = ARGV.first
