@@ -83,7 +83,9 @@ def interactive_menu
 end
 
 def save_students
-  file = File.open("students.csv", "w")
+  puts "Which file to save data too?"
+  file_to_open = gets.chomp
+  file = File.open(file_to_open, "w")
   @students.each do |student|
     student_data = [student[:name], student[:cohort]]
     csv_line = student_data.join(",")
